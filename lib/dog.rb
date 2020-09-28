@@ -74,13 +74,24 @@ class Dog
       self.new_from_db(array)
   end
   
+  def self.find_by_name_and_breed(name,breed)
+    sql = <<-SQL
+      SELECT *
+      FROM dogs 
+      WHERE name = ?
+      SQL
+      DB[:conn].execute(sql, name)
+    end
+  
+  
   def self.find_or_create_by(hash)
     
     if find_by_name(hash[:name])[1] == nil     #new dog
-    puts "ok"
       create(hash)
-    else 
-      new_from_db(find_by_name(hash[:name]))
+    elsif find_by_name(hash[:name])[2] == hash[:breed]
+      find_by_name(hash[:name])
+    else
+      
     end
   end
   
