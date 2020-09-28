@@ -86,7 +86,7 @@ class Dog
   
   
   def self.find_or_create_by(hash)
-    puts find_by_name_and_breed(hash[:name], hash[:breed])[1]
+    puts find_by_name_and_breed(hash[:name], hash[:breed]).class
     
     if find_by_name_and_breed(hash[:name], hash[:breed])[1] == nil     #new dog
       create(hash)
