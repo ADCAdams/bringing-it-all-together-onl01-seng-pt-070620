@@ -76,7 +76,8 @@ class Dog
   
   def self.find_or_create_by(:name, :breed)
     if find_by_name(:name) == nil 
-      
+      puts "ok"
+    end
       
       
 
