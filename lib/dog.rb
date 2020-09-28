@@ -90,6 +90,7 @@ class Dog
     
     if find_by_name_and_breed(hash[:name], hash[:breed])[1] == nil     #new dog
     puts "hahahahahahahah #{hash}"
+    puts "ooooooooo #{find_by_name_and_breed(hash[:name], hash[:breed])}"
       create(hash)
       
       
