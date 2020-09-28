@@ -91,7 +91,7 @@ class Dog
     # elsif find_by_name(hash[:name])[2] == hash[:breed]
     #   find_by_name(hash[:name])
     else 
-      find_by_name_and_breed(hash[:name],hash[:breed])
+      new_from_db(find_by_name_and_breed(hash[:name],hash[:breed]))
       
     end
   end
