@@ -46,7 +46,7 @@ class Dog
       FROM dogs 
       WHERE name = ?
       SQL
-      clean_array(DB[:conn].execute(sql, name))
+      new_from_db(clean_array(DB[:conn].execute(sql, name)))
     end
     
   def update
