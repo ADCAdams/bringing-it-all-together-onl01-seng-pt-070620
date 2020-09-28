@@ -71,7 +71,7 @@ class Dog
       WHERE id = ?
       SQL
       array = clean_array(DB[:conn].execute(sql, id))
-      self.new_from_db(array)
+      new_from_db(array)
   end
   
   def self.find_by_name_and_breed(name,breed)
@@ -82,6 +82,8 @@ class Dog
       SQL
       clean_array(DB[:conn].execute(sql, name, breed))
     end
+    
+    
   def self.clean_array(array)
     if array[0] != nil 
       if array[1] == nil 
@@ -92,22 +94,10 @@ class Dog
   end
   
   def self.find_or_create_by(hash)
-    puts find_by_name_and_breed(hash[:name], hash[:breed]).class
-    
     if find_by_name_and_breed(hash[:name], hash[:breed])[1] == nil     #new dog
-    puts "hahahahahahahah #{hash}"
-    puts "ooooooooo #{find_by_name_and_breed(hash[:name], hash[:breed])}"
       create(hash)
-      
-      
-    # elsif find_by_name(hash[:name])[2] == hash[:breed]
-    #   find_by_name(hash[:name])
-    
-    
     else 
-      
       new_from_db(find_by_name_and_breed(hash[:name],hash[:breed]))
-      
     end
   end
   
