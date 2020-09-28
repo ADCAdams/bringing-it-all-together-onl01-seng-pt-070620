@@ -71,7 +71,7 @@ class Dog
       SQL
       array = DB[:conn].execute(sql, id)
       found_pup = self.new_from_db(array)
-      puts found_pup.breed
+      found_pup
   end
   
   
