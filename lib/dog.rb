@@ -78,9 +78,9 @@ class Dog
     sql = <<-SQL
       SELECT *
       FROM dogs 
-      WHERE name = ?
+      WHERE name = ? AND breed = ?
       SQL
-      DB[:conn].execute(sql, name)
+      DB[:conn].execute(sql, name, breed)
     end
   
   
@@ -88,9 +88,10 @@ class Dog
     
     if find_by_name(hash[:name])[1] == nil     #new dog
       create(hash)
-    elsif find_by_name(hash[:name])[2] == hash[:breed]
-      find_by_name(hash[:name])
-    else
+    # elsif find_by_name(hash[:name])[2] == hash[:breed]
+    #   find_by_name(hash[:name])
+    else 
+      find_by_name_and_breed(hash[:name],hash[:breed])
       
     end
   end
