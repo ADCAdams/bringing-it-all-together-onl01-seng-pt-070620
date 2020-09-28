@@ -46,7 +46,7 @@ class Dog
       FROM dogs 
       WHERE name = ?
       SQL
-      DB[:conn].execute(sql, name)
+      clean_array(DB[:conn].execute(sql, name))
     end
     
   def update
@@ -70,7 +70,7 @@ class Dog
       FROM dogs 
       WHERE id = ?
       SQL
-      array = DB[:conn].execute(sql, id)
+      array = clean_array(DB[:conn].execute(sql, id))
       self.new_from_db(array)
   end
   
@@ -80,10 +80,16 @@ class Dog
       FROM dogs 
       WHERE name = ? AND breed = ?
       SQL
-      puts DB[:conn].execute(sql, name, breed)
-      DB[:conn].execute(sql, name, breed)
+      clean_array(DB[:conn].execute(sql, name, breed))
     end
-  
+  def self.clean_array(array)
+    if array[0] != nil 
+      if array[1] == nil 
+        array = array[0]
+      end
+    end
+    array
+  end
   
   def self.find_or_create_by(hash)
     puts find_by_name_and_breed(hash[:name], hash[:breed]).class
