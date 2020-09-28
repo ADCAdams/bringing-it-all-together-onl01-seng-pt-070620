@@ -74,7 +74,9 @@ class Dog
       self.new_from_db(array)
   end
   
-  def self.find_or_create_by
+  def self.find_or_create_by(:name, :breed)
+    if find_by_name(:name) then
+      
 
     
   end
