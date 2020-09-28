@@ -78,12 +78,8 @@ class Dog
     if find_by_name(hash[:name]) == nil 
       create(hash)
     else 
-      
+      find_by_name(hash[:name])
     end
-      
-      
-
-    
   end
   
   
