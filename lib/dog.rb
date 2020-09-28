@@ -75,6 +75,7 @@ class Dog
   end
   
   def self.find_or_create_by(hash)
+    puts find_by_name(hash[:name])
     if find_by_name(hash[:name]) == nil     #new dog
     puts "ok"
       create(hash)
