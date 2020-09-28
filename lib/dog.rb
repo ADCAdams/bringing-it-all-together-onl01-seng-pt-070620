@@ -71,9 +71,10 @@ class Dog
       WHERE id = ?
       SQL
       array = DB[:conn].execute(sql, id)
-      found_pup = self.new_from_db(array)
-      found_pup
+      self.new_from_db(array)
   end
+  
+  
   
   
 end     #ends class
