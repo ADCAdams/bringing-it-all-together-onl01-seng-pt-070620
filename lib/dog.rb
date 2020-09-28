@@ -32,9 +32,7 @@ class Dog
   
   
   def self.new_from_db(array)
-    puts array
-    puts array[0]
-    puts array[0][2]
+    array = array[0] if array[1] == nil
     id = array[0]
     name = array[1]
     breed = array[2]
