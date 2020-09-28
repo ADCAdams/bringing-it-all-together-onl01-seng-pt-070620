@@ -78,7 +78,7 @@ class Dog
     if find_by_name(hash[:name]) == nil 
       create(hash)
     else 
-      find_by_name(hash[:name])
+      new_from_db(find_by_name(hash[:name]))
     end
   end
   
