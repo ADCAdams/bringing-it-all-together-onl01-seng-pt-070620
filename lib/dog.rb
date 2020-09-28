@@ -34,7 +34,7 @@ class Dog
   def self.new_from_db(array)
     puts array
     puts array[0]
-    puts array[0][2]
+    puts array[1]
     id = array[0]
     name = array[1]
     breed = array[2]
