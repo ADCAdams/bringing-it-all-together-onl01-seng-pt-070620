@@ -89,7 +89,7 @@ class Dog
     puts find_by_name_and_breed(hash[:name], hash[:breed]).class
     
     if find_by_name_and_breed(hash[:name], hash[:breed])[1] == nil     #new dog
-    puts "hahahahahahahah"
+    puts "hahahahahahahah #{hash}"
       create(hash)
       
       
